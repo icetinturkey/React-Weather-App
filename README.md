@@ -1,6 +1,6 @@
 ## React-Weather-App
 
-![Image](https://download.vadi.info/fmss-weather.jpg)
+
 
 It is a simple React application that connects to OpenWeatherAPI servers and displays the 8-day weather forecast for the city of your choice.
 
