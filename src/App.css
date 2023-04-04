@@ -1,111 +1,145 @@
 body {
-  background: #f39c12;
-  margin-bottom:20px;
+  background: rgb(238,174,202);
+  background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  font-size:16px;
 }
-button, input, optgroup, select, textarea {
-  font-family: sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
+.menu-container {
+  display:flex;
+  justify-content: center;
+  padding-top:20px;
 }
-.center-on-page {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+.menu-inner{
+  width:340px;
+  display:flex;
+  flex-wrap: wrap;
 }
-h1 {
+.menu-text{
+  width:15%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu-text span{
   text-align: center;
 }
-/* Reset Select */
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #2c3e50;
-  background-image: none;
+.menu-select{
+  width:84%;
 }
-/* Custom Select */
-.select {
-  position: relative;
-  display: block;
-  width: 20em;
-  height: 3em;
-  line-height: 3;
-  background: #2c3e50;
-  overflow: hidden;
-  border-radius: .25em;
+.main-container{
+  width: 100vw;
+  min-width:301px;
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
 }
-select {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 .5em;
-  color: #fff;
-  cursor: pointer;
+.main-inner{
+  height:340px;
+  width:35%;
+  background:rgba(255,255,255,0.5);
+  border-radius:20px;
+  border:1px solid #fff;
+  overflow:hidden;
+  position:absolute;
 }
-select::-ms-expand {
-  display: none;
+.main-column{
+  display:flex;
+  flex-direction: row;
 }
-/* Arrow */
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 1em;
-  background: #34495e;
-  pointer-events: none;
+.main-column:first-child{
+  border-bottom: 1px solid #eee;
 }
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
+.main-row{
+  display:flex;
+  width:100%;
 }
-.select::after {
-  -webkit-transition: .25s all ease;
-  transition: .25s all ease;
+.main-item{
+  padding-top:10px;
+  padding-bottom:10px;
+  width:100%;
+  color:#555;
 }
-.fcontainer{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+.f .main-item:first-child{
+  background-color: rgba(0,0,0,0.1);
 }
-@media screen and (max-width: 1280px) {
-  .fcontainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+.main-item div:first-child{
+  text-align: center;
 }
-@media screen and (max-width: 768px) {
-  .fcontainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.fbox{
-  margin:10px;
-  padding:10px;
-  background: #f1c379;
-  border-radius:5px;
-  color:#444;
-}
-.fbox:first-child{
-  border:4px solid #2c3e50;
-}
-.fbox div{
+.main-img{
   display:flex;
   justify-content: center;
 }
-.fbox div:last-child{
-  font-size:20px;
+.main-temps{
+  text-align: center;
+  justify-content: center;
+  display: flex;
 }
-.fbox div:last-child span:first-child{
-  color:#000;
+@media screen and (max-width: 1280px) {
+  .main-inner{
+    width:60%;
+  }
+}
+@media screen and (max-width: 768px) {
+  body{
+    margin-bottom:800px;
+  }
+  .main-column:first-child{
+    border:none;
+  }
+  .main-row{
+    border-bottom: 1px solid #eee;
+  }
+  .main-inner{
+    width:90%;
+    height:683px;
+  }
+  .main-column{
+    flex-direction: column;
+  }
+  .main-item:first-child{
+    border-right:1px solid #eee;
+  }
+}
+
+
+
+
+
+.title-word {
+  animation: color-animation 4s linear infinite;
+}
+
+.title-word-1 {
+  --color-1: #2f37e0;
+  --color-2: #50005e;
+  --color-3: #7d00c5;
+}
+
+.title-word-2 {
+  --color-1: #009666;
+  --color-2: #005269;
+  --color-3: #17494D;
+}
+
+.title-word-3 {
+  --color-1: #005269;
+  --color-2: #7d00c5;
+  --color-3: #005269;
+}
+
+.title-word-4 {
+  --color-1: #50005e;
+  --color-2: #2f37e0;
+  --color-3: #7d00c5;
+}
+
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
 }
 .copyright{
   position:fixed;
@@ -113,4 +147,8 @@ select::-ms-expand {
   right:10px;
   color:#fff;
   font-weight: bold;
+  text-decoration: none;
+}
+.copyright:hover{
+  border-bottom: 2px solid #eee;
 }

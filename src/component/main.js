@@ -1,24 +1,39 @@
 import {useContext} from "react";
 import Service from "../context/service";
-function Main(){
+import Day from "./day";
+
+function Main({loading}){
     const {forecast} = useContext(Service);
-    const toLocalDate = (epoch) => {
-        const d = new Date(epoch*1000);
-        const options = { weekday: 'short'};
-        return new Intl.DateTimeFormat('en-US', options).format(d);
-    }
-    return (
-        <div style={{padding:"10px"}}>
-            <div className="fcontainer">
-                {forecast.daily?forecast.daily.map((item)=>(
-                    <div className="fbox" key={item.dt}>
-                        <div><span>{toLocalDate(item.dt)}</span></div>
-                        <div><img title={item.weather[0].main} alt={item.weather[0].main} src={'https://openweathermap.org/img/wn/'+item.weather[0].icon+'@2x.png'} /></div>
-                        <div><span>{Math.round(item.temp.max)}&deg;&nbsp;-&nbsp;</span><span>{Math.round(item.temp.min)}&deg;</span></div>
+    if (typeof forecast.daily == "object") {
+        return (
+            <div className="main-container">
+                <div className="main-inner">
+                    <div className="main-column">
+                        <div className="main-row f">
+                            <Day data={forecast.daily[0]} loading={loading} />
+                            <Day data={forecast.daily[1]} loading={loading} />
+                        </div>
+                        <div className="main-row">
+                            <Day data={forecast.daily[2]} loading={loading} />
+                            <Day data={forecast.daily[3]} loading={loading} />
+                        </div>
                     </div>
-                )):"Please select a city."}
+                    <div className="main-column">
+                        <div className="main-row">
+                            <Day data={forecast.daily[4]} loading={loading} />
+                            <Day data={forecast.daily[5]} loading={loading} />
+                        </div>
+                        <div className="main-row">
+                            <Day data={forecast.daily[6]} loading={loading} />
+                            <Day data={forecast.daily[7]} loading={loading} />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }else{
+        return <h1>&nbsp;</h1>;
+    }
+
 }
 export default Main;
